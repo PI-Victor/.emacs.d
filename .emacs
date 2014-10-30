@@ -9,4 +9,5 @@
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
