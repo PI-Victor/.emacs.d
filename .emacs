@@ -1,6 +1,8 @@
 (package-initialize) ;; You might already have this line
-(load-theme 'gotham)
+(add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
+(load-theme 'gotham t)
 (add-to-list 'load-path "~/.emacs.d/custom/")
+
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 (require 'package) ;; You might already have this line
