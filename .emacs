@@ -1,10 +1,12 @@
 (package-initialize) ;; You might already have this line
 (if (display-graphic-p)
     (progn
-            (tool-bar-mode -1)))
-(add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"));; add custom theme
+      (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"));; add custom theme
+      (load-theme 'gotham t)
+      (tool-bar-mode -1))
+  (load-theme 'wombat t)
+  )
 (add-to-list 'load-path "~/.emacs.d/custom/") ;; add custom for rust-el
-(load-theme 'gotham t)
 (autoload 'rust-mode "rust-mode" nil t)
 (require 'go-mode-autoloads)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
