@@ -4,8 +4,7 @@
       (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"));; add custom theme
       (load-theme 'gotham t)
       (tool-bar-mode -1))
-  (load-theme 'wombat t)
-  )
+  (load-theme 'wombat t))
 (add-to-list 'load-path "~/.emacs.d/custom/") ;; add custom for rust-el
 (autoload 'rust-mode "rust-mode" nil t)
 (require 'go-mode-autoloads)
