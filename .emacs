@@ -1,10 +1,11 @@
-(package-initialize) ;; You might already have this line
-(if (display-graphic-p)
+(if (display-graphic-p) ;; check to see if we're running x11, otherwise revert back to standard theme
     (progn
       (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"));; add custom theme
       (load-theme 'gotham t)
       (tool-bar-mode -1))
   (load-theme 'wombat t))
+
+(package-initialize) ;; You might already have this line
 (add-to-list 'load-path "~/.emacs.d/custom/") ;; add custom for rust-el
 (autoload 'rust-mode "rust-mode" nil t)
 (require 'go-mode-autoloads)
