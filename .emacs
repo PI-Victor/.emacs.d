@@ -3,7 +3,7 @@
       (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"));; add custom theme
       (load-theme 'adwaita t)
       (tool-bar-mode -1))
-  (load-theme 'wombat t))
+  (load-theme 'adwaita t))
 
 (package-initialize) ;; You might already have this line
 (add-to-list 'load-path "~/.emacs.d/custom/") ;; add custom for rust-el
