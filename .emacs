@@ -1,7 +1,7 @@
 (if (display-graphic-p) ;; check to see if we're running x11, otherwise revert back to standard theme
     (progn
       (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"));; add custom theme
-      (load-theme 'adwaita t)
+      (load-theme 'gotham t)
       (tool-bar-mode -1))
   (load-theme 'adwaita t))
 
