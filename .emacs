@@ -20,6 +20,7 @@
  '(custom-safe-themes
    (quote
     ("a772eafba4eda0ed57a5d651a96804487a1dacbfbf8658084bfe84546a7c7008" default)))
+ '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
 ;;change default auto-save directory to avoid any clashes with git
