@@ -6,6 +6,12 @@
   (load-theme 'adwaita t))
 
 (package-initialize) ;; You might already have this line
+(add-to-list 'load-path "~/.emacs.d/modes/")
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
+
+
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
