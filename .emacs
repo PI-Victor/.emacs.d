@@ -6,10 +6,6 @@
   (load-theme 'adwaita t))
 
 (package-initialize) ;; You might already have this line
-(add-to-list 'load-path "~/.emacs.d/custom/") ;; add custom for rust-el
-(autoload 'rust-mode "rust-mode" nil t)
-(require 'go-mode-autoloads)
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
