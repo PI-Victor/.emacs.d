@@ -63,9 +63,6 @@
 (add-hook 'after-init-hook #'fancy-battery-mode)
 ;; enable visual line wrapper
 (setq line-move-visual t)
-;; run gofmt on save
-(add-hook 'before-save-hook 'gofmt-before-save)
-(add-hook 'before-save-hook 'golint)
 
 (package-initialize) 
 
@@ -128,3 +125,20 @@
 ;; Load the window manager for emacs 
 (require 'window-purpose)
 (purpose-mode)
+
+
+;; protoype on save golint
+
+(defun golint-before-save ()
+  
+  )
+  
+
+(defun go-mode-setup ()
+  (go-eldoc-setup)
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'golint-before-save)
+  (local-set-key (kbd "M-.") 'godef-jump))
+(add-hook 'go-mode-hook 'go-mode-setup)
+;; run gofmt on save
+(add-hook 'before-save-hook 'gofmt-before-save)
