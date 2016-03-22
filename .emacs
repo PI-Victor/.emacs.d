@@ -123,3 +123,8 @@
 (setq fci-rule-width 1)
 (setq fci-rule-column 79)
 (setq fci-rule-color "green")
+
+
+;; Load the window manager for emacs 
+(require 'window-purpose)
+(purpose-mode)
