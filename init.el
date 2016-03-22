@@ -15,13 +15,14 @@
       (menu-bar-mode -1)
       (tool-bar-mode -1)
       (scroll-bar-mode -1))
-  (load-theme 'adwaita t))
+  (load-theme 'misterioso t))
 
 
 ;; list the packages you want
 (setq package-list '(fancy-battery go-autocomplete go-mode
 				   golint govet
 				   helm-spotify
+				   move-text
 				   window-purpose
 				   go-errcheck go-gopath
 				   go-playground go-projectile
