@@ -19,11 +19,18 @@
 
 
 ;; list the packages you want
-(setq package-list '(fancy-battery go-autocomplete go-mode go-errcheck go-gopath
-				   go-playground go-projectile helm helm-projectile
-				   helm-ag fill-column-indicator ac-python
-				   anaconda-mode auto-virtualenv ein
-				   ))
+(setq package-list '(fancy-battery go-autocomplete go-mode
+				   golint govet
+				   helm-spotify
+				   window-purpose
+				   go-errcheck go-gopath
+				   go-playground go-projectile
+				   projectile helm
+				   helm-projectile helm-ag
+				   fill-column-indicator
+				   ac-python anaconda-mode
+				   auto-virtualenv ein ))
+
 ;; list the repositories containing them
 (setq package-archives '(("melpa" . "http://melpa.org/packages/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")
@@ -56,7 +63,9 @@
 (add-hook 'after-init-hook #'fancy-battery-mode)
 ;; enable visual line wrapper
 (setq line-move-visual t)
-
+;; run gofmt on save
+(add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'before-save-hook 'golint)
 
 (package-initialize) 
 
