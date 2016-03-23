@@ -79,7 +79,8 @@
 (setq line-move-visual t)
 ;; turn on visual line mode wrapping
 (global-visual-line-mode)
-
+;; set word wrapping for comments to 79 chars
+(setq-default fill-column 79)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -118,8 +119,6 @@
 
 ;; whatever is above needs to be refactored into a coherent configuration for
 ;; emacs
-;; set word wrapping for comments to 79 chars
-(setq-default fill-column 79)
 
 (require 'projectile)
 ;; enable projectile for managing projects
@@ -152,18 +151,20 @@
 (purpose-mode)
 
 
-
-
-
-
-
+(require 'forecast)
+;; settings for forecast
+(setq forecast-api-key "80aa65ef9dfe3a34c61b4875d9569f77"
+      forecast-lattitude 49.2
+      forecast-longitude 16.6333333
+      forecast-country "Czech Republic"
+      forecast-city "Brno")
 
 
 ;; protoype on save golint
 
 (defun golint-before-save ()
-
-  )
+  (interactive)
+  (message "Trying to golint"))
 
 
 (defun go-mode-setup ()
@@ -173,5 +174,5 @@
   (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'go-mode-setup)
 ;; run gofmt on save
-(add-hook 'before-save-hook 'gofmt-before-save)
+;; (add-hook 'before-save-hook 'gofmt-before-save)
 (setq visual-line-mode t)
