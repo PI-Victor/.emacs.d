@@ -37,11 +37,13 @@
 
 ;; list the packages you want
 (setq package-list '(fancy-battery
-		     forecast
+		     sunshine
 		     go-autocomplete
+		     go-direx ;; requires go get -u github.com/jstemmer/gotags
 		     go-mode
 		     golint
 		     govet
+		     ag
 		     helm-spotify
 		     move-text
 		     window-purpose
@@ -136,9 +138,18 @@
 		  (interactive)
 		  (helm-projectile))
 
+(defun search-for-file ()
+  (interactive)
+  (projectile-find-file))
+
 (global-set-key (kbd "<f10>") 'open-project)
 (global-set-key (kbd "<f9>") 'open-file)
+(global-set-key (kbd "<f8>") 'search-for-file)
 
+;; This might need a hook, since it's only available for golang
+;; opens a go file as a source tree
+(require 'go-direx)
+(global-set-key (kbd "<f5>") 'go-direx-switch-to-buffer)
 
 ;; requirements for Fill Column Indicator
 (require 'fill-column-indicator)
@@ -151,22 +162,17 @@
 (setq fci-rule-column 79)
 (setq fci-rule-color "green")
 
+;; sunshine setup
+(setq sunshine-location "Brno, Czech Republic")
+(setq sunshine-appid "19e6375d5a446d2a94d4b0df498a23ce")
+(setq sunshine-units 'metric)
+(setq sunshine-show-icons t)
 
 ;; Load the window manager for emacs
 (require 'window-purpose)
 (purpose-mode)
 
-
-(require 'forecast)
-;; settings for forecast
-(setq forecast-api-key "80aa65ef9dfe3a34c61b4875d9569f77"
-      forecast-lattitude 49.2
-      forecast-longitude 16.6333333
-      forecast-country "Czech Republic"
-      forecast-city "Brno")
-
-
-;; protoype on save golint
+;; prototype on save golint
 
 (defun golint-before-save ()
   (interactive)
