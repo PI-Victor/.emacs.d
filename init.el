@@ -83,6 +83,9 @@
 (global-visual-line-mode)
 ;; set word wrapping for comments to 79 chars
 (setq-default fill-column 79)
+;; Load custom modules 
+(add-to-list 'load-path "~/.emacs.d/custom")
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -172,19 +175,3 @@
 (require 'window-purpose)
 (purpose-mode)
 
-;; prototype on save golint
-
-(defun golint-before-save ()
-  (interactive)
-  (message "Trying to golint"))
-
-
-(defun go-mode-setup ()
-  (go-eldoc-setup)
-  (setq gofmt-command "goimports")
-  (add-hook 'before-save-hook 'golint-before-save)
-  (local-set-key (kbd "M-.") 'godef-jump))
-(add-hook 'go-mode-hook 'go-mode-setup)
-;; run gofmt on save
-;; (add-hook 'before-save-hook 'gofmt-before-save)
-(setq visual-line-mode t)
