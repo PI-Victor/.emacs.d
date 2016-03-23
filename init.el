@@ -127,12 +127,18 @@
 (setq projectile-enable-caching t)
 ;; open projectile at startup
 
-(defun load-projectile-customization ()
+(defun open-project ()
   (interactive)
   (purpose-load-window-layout "golang_golint")
   (helm-projectile))
 
-(global-set-key (kbd "<f10>") 'load-projectile-customization)
+(defun open-file ()
+		  (interactive)
+		  (helm-projectile))
+
+(global-set-key (kbd "<f10>") 'open-project)
+(global-set-key (kbd "<f9>") 'open-file)
+
 
 ;; requirements for Fill Column Indicator
 (require 'fill-column-indicator)
