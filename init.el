@@ -87,6 +87,7 @@
 (add-to-list 'load-path "~/.emacs.d/custom")
 
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -145,9 +146,15 @@
   (interactive)
   (projectile-find-file))
 
+(defun search-for-expression ()
+  (interactive)
+  (projectile-grep))
+
 (global-set-key (kbd "<f10>") 'open-project)
 (global-set-key (kbd "<f9>") 'open-file)
 (global-set-key (kbd "<f8>") 'search-for-file)
+(global-set-key (kbd "<f7>") 'search-for-expression)
+
 
 ;; This might need a hook, since it's only available for golang
 ;; opens a go file as a source tree
