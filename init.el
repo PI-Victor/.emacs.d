@@ -82,10 +82,14 @@
 ;; turn on visual line mode wrapping
 (global-visual-line-mode)
 ;; set word wrapping for comments to 79 chars
+(global-linum-mode)
 (setq-default fill-column 79)
 ;; Load custom modules 
 (add-to-list 'load-path "~/.emacs.d/custom")
-
+;; enable flyspell-mode for highlighting spelling errors
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'find-file-hooks 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -149,7 +153,7 @@
 (global-set-key (kbd "<f9>") 'open-file)
 (global-set-key (kbd "<f8>") 'search-for-file)
 
-;; This might need a hook, since it's only available for golang
+;; this might need a hook, since it's only available for golang;
 ;; opens a go file as a source tree
 (require 'go-direx)
 (global-set-key (kbd "<f5>") 'go-direx-switch-to-buffer)
