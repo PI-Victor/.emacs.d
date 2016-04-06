@@ -91,6 +91,7 @@
 (add-hook 'find-file-hooks 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -149,14 +150,27 @@
   (interactive)
   (projectile-find-file))
 
+(defun search-for-expression ()
+  (interactive)
+  (projectile-grep))
+;; These are go specifics, should be under a hook 
+(defun jump-into-definition ()
+  ;; opens a go file as a source tree
+  (require 'go-direx)
+  (global-set-key (kbd "<f5>") 'go-direx-switch-to-buffer)
+  ;; jumps into a function definition
+  (local-set-key (kbd "M-.") 'godef-jump))
+
+(add-hook 'go-mode-hook 'jump-into-definition)
+
 (global-set-key (kbd "<f10>") 'open-project)
 (global-set-key (kbd "<f9>") 'open-file)
 (global-set-key (kbd "<f8>") 'search-for-file)
-
 ;; this might need a hook, since it's only available for golang;
 ;; opens a go file as a source tree
 (require 'go-direx)
 (global-set-key (kbd "<f5>") 'go-direx-switch-to-buffer)
+(global-set-key (kbd "<f7>") 'search-for-expression)
 
 ;; requirements for Fill Column Indicator
 (require 'fill-column-indicator)
