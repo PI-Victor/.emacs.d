@@ -59,6 +59,8 @@
 		     ac-python
 		     anaconda-mode
 		     auto-virtualenv
+		     yaml-mode
+		     dockerfile-mode
 		     ein))
 
 ;; fetch the list of packages available
