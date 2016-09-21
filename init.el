@@ -5,13 +5,14 @@
 ;; helm helm-ag helm-projectile - project management
 ;; projectile - same as above
 
-
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+    (setq exec-path (append exec-path '("/usr/local/bin")))
 ;; graphical display settings
 ;; check to see if we're running x11, otherwise revert back to standard theme
 (if (display-graphic-p)
     (progn
       ;; add custom theme
-      (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
+      (add-to-list 'custom-theme-load-path (expand-file-name "/Users/ipalade/.emacs.d/themes/"))
       (load-theme 'deeper-blue t)
       (menu-bar-mode -1)
       (tool-bar-mode -1)
@@ -61,6 +62,7 @@
 		     auto-virtualenv
 		     yaml-mode
 		     dockerfile-mode
+		     flymake-go
 		     ein))
 
 ;; fetch the list of packages available
