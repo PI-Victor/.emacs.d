@@ -10,7 +10,7 @@ yum install gnutls-devel.x86_64 ncurses-devel -y
 make
 ```
 
-# as root:
+as root:
 ```
 make install 
 ```
